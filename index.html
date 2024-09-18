@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Raitec Guardian - Gas Monitoring System</title>
+  <!-- Link to the CSS file -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Include Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <!-- Include Google Charts -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- Include Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Meta tag for responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  <!-- Login Screen -->
+  <div id="login-screen" class="container">
+    <div class="logo">
+      <img src="images/raitec-logo.png" alt="Raitec Guardian Logo">
+    </div>
+    <h2>Welcome to Raitec Guardian</h2>
+    <p>Your comprehensive gas monitoring solution.</p>
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <!-- App Content -->
+  <div id="app-content" style="display:none;">
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-left">
+        <ul>
+          <li><a href="#" id="nav-dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+          <li><a href="#" id="nav-log"><i class="fas fa-list"></i> Event Log</a></li>
+          <li><a href="#" id="nav-cctv"><i class="fas fa-video"></i> CCTV Feed</a></li>
+          <li><a href="#" id="nav-settings"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <span><i class="fas fa-user-circle"></i> Logged in as <strong id="user-role">User</strong></span>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Dashboard Section -->
+      <section id="section-dashboard">
+        <!-- Sensor Status Table -->
+        <section id="sensor-status">
+          <h2>Sensor Status Overview</h2>
+          <table id="sensor-status-table">
+            <thead>
+              <tr>
+                <th>Sensor ID</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Value</th>
+                <th>Normal Range</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Sensor rows will be dynamically generated -->
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Gauges Section -->
+        <h2>Gas Levels</h2>
+        <div id="gas-gauges">
+          <!-- Gauges will be inserted here -->
+        </div>
+
+        <!-- Alerts Section -->
+        <section id="alerts">
+          <h2>Alerts</h2>
+          <ul id="alerts-list">
+            <!-- Alerts will appear here -->
+          </ul>
+        </section>
+
+        <!-- Historical Data Chart -->
+        <section id="historical-data">
+          <h2>Historical Data</h2>
+          <div id="historical-chart"></div>
+        </section>
+      </section>
+
+      <!-- Event Log Section -->
+      <section id="section-log" style="display:none;">
+        <h2>Event Log</h2>
+        <table id="event-log-table">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Event</th>
+              <th>Priority</th>
+              <th>Owner</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Log entries will appear here -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- CCTV Feed Section -->
+      <section id="section-cctv" style="display:none;">
+        <h2>Live CCTV Feed</h2>
+        <div id="video-container">
+          <!-- Video stream will be embedded here -->
+          <video id="video-stream" width="640" height="480" controls autoplay muted>
+            <source src="videos/sample-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
+
+      <!-- Settings Section -->
+      <section id="section-settings" style="display:none;">
+        <h2>Settings</h2>
+        <form id="settings-form">
+          <label>
+            <input type="checkbox" id="dark-mode-toggle">
+            Dark Mode
+          </label>
+          <fieldset>
+            <legend>Select Gas Channels to Display:</legend>
+            <div id="gas-channel-options">
+              <!-- Gas channel checkboxes will be generated here -->
+            </div>
+          </fieldset>
+          <button type="submit">Save Settings</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Raitec Pouya - Advanced Gas Monitoring Solutions</p>
+    </footer>
+  </div>
+
+  <!-- Sensor Details Modal -->
+  <div id="sensor-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2 id="sensor-modal-title"></h2>
+      <div id="sensor-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Include the JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
